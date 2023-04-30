@@ -1,0 +1,56 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<xml Data_Version = "2" >
+
+    <Interface>
+        <Name>Rubik's cube 2x2x2</Name>
+        <Menu>Cubic\Classic Rubiks\2x2x2</Menu>
+        <Inventor>Ernő Rubik</Inventor>
+        <Programmer>Boris</Programmer>
+        <Added>2014-03-21</Added>
+        <Link>http://twistypuzzles.com/cgi-bin/puzzle.cgi?pkey=1</Link>
+    </Interface>
+ 
+    <Axes TurningAngles = "Pi / 2" PlaneDistances = "0" >
+        <Axis NormVector = "1; 0; 0" />
+        <Axis NormVector = "0; 1; 0" />
+        <Axis NormVector = "0; 0; 1" />
+    </Axes>
+ 
+    <Figure>
+        <LoadFrom File = "Figures\Cube.xml" W = "0.5" />
+        <SplitByAxes/>
+    </Figure>
+
+    <!-- Macros added by Minimoed -->
+	<Macros>
+		<Macro Name = "L " Public = "1" Description = "L - left clockwise, L2 - double, L' - c/clockwise" > <Turn Axis = "0" Layer = "0" Angle = " Pi/2" /> </Macro>
+		<Macro Name = "L2" Public = "0" > <Turn Axis = "0" Layer = "0" Angle = " Pi	 " /> </Macro>
+		<Macro Name = "L'" Public = "0" > <Turn Axis = "0" Layer = "0" Angle = "-Pi/2" /> </Macro>
+		<Macro Name = "R " Public = "1" Description = "R - right, X - whole cube"> <Turn Axis = "0" Layer = "1" Angle = "-Pi/2" /> </Macro>
+		<Macro Name = "R2" Public = "0" > <Turn Axis = "0" Layer = "1" Angle = " Pi	 " /> </Macro>
+		<Macro Name = "R'" Public = "0" > <Turn Axis = "0" Layer = "1" Angle = " Pi/2" /> </Macro>
+		<Macro Name = "X " Public = "0" > <Turn Axis = "0" From = "0" To = "1" Angle = "-Pi/2" /> </Macro>
+		<Macro Name = "X2" Public = "0" > <Turn Axis = "0" From = "0" To = "1" Angle = " Pi  " /> </Macro>
+		<Macro Name = "X'" Public = "0" > <Turn Axis = "0" From = "0" To = "1" Angle = " Pi/2" /> </Macro>
+
+		<Macro Name = "F " Public = "1" Description = "F - face, Z - whole cube"> <Turn Axis = "1" Layer = "0" Angle = " Pi/2" /> </Macro>
+		<Macro Name = "F2" Public = "0" > <Turn Axis = "1" Layer = "0" Angle = " Pi	 " /> </Macro>
+		<Macro Name = "F'" Public = "0" > <Turn Axis = "1" Layer = "0" Angle = "-Pi/2" /> </Macro>
+		<Macro Name = "B " Public = "1" Description = "B - back" > <Turn Axis = "1" Layer = "1" Angle = "-Pi/2" /> </Macro>
+		<Macro Name = "B2" Public = "0" > <Turn Axis = "1" Layer = "1" Angle = " Pi	 " /> </Macro>
+		<Macro Name = "B'" Public = "0" > <Turn Axis = "1" Layer = "1" Angle = " Pi/2" /> </Macro>
+		<Macro Name = "Z " Public = "0" > <Turn Axis = "1" From = "0" To = "1" Angle = " Pi/2" /> </Macro>
+		<Macro Name = "Z2" Public = "0" > <Turn Axis = "1" From = "0" To = "1" Angle = " Pi  " /> </Macro>
+		<Macro Name = "Z'" Public = "0" > <Turn Axis = "1" From = "0" To = "1" Angle = "-Pi/2" /> </Macro>
+	
+		<Macro Name = "D " Public = "1" Description = "D - down" > <Turn Axis = "2" Layer = "0" Angle = " Pi/2" /> </Macro>
+		<Macro Name = "D2" Public = "0" > <Turn Axis = "2" Layer = "0" Angle = " Pi	 " /> </Macro>
+		<Macro Name = "D'" Public = "0" > <Turn Axis = "2" Layer = "0" Angle = "-Pi/2" /> </Macro>
+		<Macro Name = "U " Public = "1" Description = "U - up, Y - whole cube" > <Turn Axis = "2" Layer = "1" Angle = "-Pi/2" /> </Macro>
+		<Macro Name = "U2" Public = "0" > <Turn Axis = "2" Layer = "1" Angle = " Pi	 " /> </Macro>
+		<Macro Name = "U'" Public = "0" > <Turn Axis = "2" Layer = "1" Angle = " Pi/2" /> </Macro>
+		<Macro Name = "Y " Public = "0" > <Turn Axis = "2" From = "0" To = "1" Angle = "-Pi/2" /> </Macro>
+		<Macro Name = "Y2" Public = "0" > <Turn Axis = "2" From = "0" To = "1" Angle = " Pi  " /> </Macro>
+		<Macro Name = "Y'" Public = "0" > <Turn Axis = "2" From = "0" To = "1" Angle = " Pi/2" /> </Macro>
+	</Macros>
+</xml>

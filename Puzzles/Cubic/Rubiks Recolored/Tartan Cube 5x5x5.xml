@@ -1,0 +1,163 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<xml Data_Version = "2" >
+
+    <Interface>
+        <Name>Tartan Cube 5x5x5</Name>
+        <Menu>Cubic\Rubiks Recolored\Tartan Cube 5x5x5</Menu>
+        <Inventor>Brian Deplae</Inventor>
+        <Programmer>Boris</Programmer>
+        <Added>2023-01-05</Added>
+        <Link>https://twistypuzzles.com/cgi-bin/puzzle.cgi?pkey=1241</Link>
+    </Interface>
+
+    <Script>
+        Colors[0] := 'C80000'; <!-- red    -->
+        Colors[1] := 'FFFF00'; <!-- yellow -->
+        Colors[2] := '009600'; <!-- green  -->
+        Colors[3] := '0000C8'; <!-- blue   -->
+
+        sColors[0] := '   23      ';
+        sColors[1] := '   01      ';
+        sColors[2] := '20 01 13 32';
+        sColors[3] := '13 32 20 01';
+        sColors[4] := '   32      ';
+        sColors[5] := '   10      ';
+
+        W := 0.5;
+
+        Order := 5;
+        DW := W / Order;
+        for i := 0 to Order - 2 do
+            D[i] := -W + DW * (i + 1) * 2;
+
+        N := Order * 2;
+
+        procedure ConvertCoordinates();
+        begin
+            xi := x + dx1 * xc + dx2 * yc;
+            yi := y + dy1 * xc + dy2 * yc;
+            zi := z + dz1 * xc + dz2 * yc;
+            xv := xi * DW - W;
+            yv := yi * DW - W;
+            zv := zi * DW - W;
+        end;
+
+        function GetId(xc, yc);
+        begin
+            ConvertCoordinates;
+
+            if VarExists('Idx[' + IntToStr(xi) + ',' + IntToStr(yi) + ',' + IntToStr(zi) + ']') then
+                Result := Idx[xi, yi, zi]
+            else begin
+                Vx[cv] := xv;
+                Vy[cv] := yv;
+                Vz[cv] := zv;
+                Result := cv;
+                Idx[xi, yi, zi] := Result;
+                Inc(cv);
+            end;
+        end;
+
+        function GetCId(xc, yc);
+        begin
+            ConvertCoordinates;
+            Cx[cc] := xv;
+            Cy[cc] := yv;
+            Cz[cc] := zv;
+            Result := cc + cn;
+            Cdx[xi, yi, zi] := Result;
+            Inc(cc);
+        end;
+
+        function GetColor(xc, yc);
+        begin
+            Result := Colors[StrToInt(copy(sColors[yc], xc, 1))];
+        end;
+
+        procedure MakeSticker(x1, y1, Color, ies);
+        begin
+            S[cf] := Sdx[x1, y1] + Sdx[x1, y1+1] + Sdx[x1+1, y1+1] + Sdx[x1+1, y1];
+            Cl[cf] := Color;
+            IE[cf] := ies;
+            Inc(cf);
+        end;
+
+        procedure MakeSide(x, y, z, dx1, dy1, dz1, dx2, dy2, dz2, sx, sy);
+        // x, y, z - left-top point of side
+        // dx1, dy1, dz1 - 1st counting vector
+        // dx2, dy2, dz2 - 2nd counting vector
+        // sx, sy - left-top letter in sColors
+        begin
+            c1 := GetColor(sx    , sy    );
+            c2 := GetColor(sx + 1, sy    );
+            c3 := GetColor(sx    , sy + 1);
+            c4 := GetColor(sx + 1, sy + 1);
+
+            // at first fill N+1 x N+1 nodes of side
+            // left and right
+            for i := 0 to N do begin
+                Sdx[ 0, i] := IntToStr(GetId( 0, i)) + ';';
+                Sdx[ N, i] := IntToStr(GetId( N, i)) + ';';
+            end;
+
+            // top and bottom
+            for i := 1 to N - 1 do begin
+                Sdx[ i, 0] := IntToStr(GetId( i, 0)) + ';';
+                Sdx[ i, N] := IntToStr(GetId( i, N)) + ';';
+            end;
+
+            // center square
+            for i := 1 to N - 1 do
+                for j := 1 to N - 1 do
+                    Sdx[ i, j] := IntToStr(GetCId( i, j)) + ';';
+
+            // make stickers
+            for i := 0 to Order - 1 do
+                for j := 0 to Order - 1 do begin
+                    MakeSticker( i*2    , j*2    , c1, 6);
+                    MakeSticker( i*2 + 1, j*2    , c2, 3);
+                    MakeSticker( i*2    , j*2 + 1, c3,12);
+                    MakeSticker( i*2 + 1, j*2 + 1, c4, 9);
+                end;
+        end;
+
+        cf := 0;
+        cv := 0;
+        cc := 0;
+        cn := 12 * N - 4;
+        MakeSide( 0, N, N,  1, 0, 0,  0,-1, 0,   4, 0); // up
+        MakeSide( 0, 0, N,  1, 0, 0,  0, 0,-1,   4, 2); // face
+        MakeSide( 0, N, N,  0,-1, 0,  0, 0,-1,   1, 2); // left
+        MakeSide( N, 0, N,  0, 1, 0,  0, 0,-1,   7, 2); // right
+        MakeSide( N, N, N, -1, 0, 0,  0, 0,-1,  10, 2); // back
+        MakeSide( 0, 0, 0,  1, 0, 0,  0, 1, 0,   4, 4); // bottom
+    </Script>
+
+    <Axes TurningAngles = "Pi / 2" PlaneDistances = "D" >
+        <Axis NormVector = "1; 0; 0" />
+        <Axis NormVector = "0; 1; 0" />
+        <Axis NormVector = "0; 0; 1" />
+    </Axes>
+
+    <Figure>
+        <Macro Name = "AddFace" >
+            <Face Color = "Cl[i]" VertexIndexes = "S[i]" InvisibleEdges = "IE[i]" />
+            <Script>Inc(i);</Script>
+        </Macro>
+
+        <Part>
+            <Vertices Vectors = "Vx; Vy; Vz" />
+            <Vertices Vectors = "Cx; Cy; Cz" />
+
+            <Faces>
+                <ExecMacro MacroName = "AddFace" i = "0" Repeat = "cf" />
+            </Faces>
+        </Part>
+
+        <SplitByAxes/>
+        <RemoveGrayParts/>
+        <SaveSolvedState/>
+    </Figure>
+
+    <Procedures CheckSolved = "CheckSavedStates" />
+</xml>

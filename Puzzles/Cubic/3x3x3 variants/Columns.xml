@@ -1,0 +1,71 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<xml Data_Version = "2" >
+
+    <Interface>
+        <Name>Columns</Name>
+        <Menu>Cubic\3x3x3 variants\Columns</Menu>
+        <Inventor>Adam Zamora</Inventor>
+        <Programmer>Boris</Programmer>
+        <Added>2014-05-10</Added>
+        <Link>http://www.twistypuzzles.com/cgi-bin/puzzle.cgi?pkey=3025</Link>
+    </Interface>
+
+    <Script>
+        include 'Figures\Scripts\Cube_Standard_Colors.inc';
+
+        W := 0.6;
+        D := W / 5;
+
+        WX := D;
+        WY := D;
+        WZ := W;
+        DWX := -D * 2;
+
+        procedure SetColors();
+        begin
+            for i := 0 to 5 do
+                Colors[i] := Color;
+        end;
+    </Script>
+
+    <Axes TurningAngles = "Pi / 2" PlaneDistances = "-D; D" >
+        <Axis NormVector = "1; 0; 0" />
+        <Axis NormVector = "0; 1; 0" />
+        <Axis NormVector = "0; 0; 1" />
+    </Axes>
+
+    <Figure>
+        <LoadFrom File = "Puzzles\Other forms\Sphere\_Macro_For_Cubic_Sphere_Mono.xml" K = "W * 0.47" Color = "222222" />
+        <SplitByAxes/>
+        <Hide Axis = "0" Layer = "1" />
+        <Hide Axis = "1" Layer = "1" />
+        <Hide Axis = "2" Layer = "1" />
+        <InvertVisibility/>
+        <RemoveAllVisible/>
+        <ShowAll/>
+
+        <Macro Name = "AddColor">
+            <Script>SetColors();</Script>
+            <LoadFrom File = "Figures\Cuboid.xml" />
+            <Turn NormVector = "0;0;1" Angle = "Pi" />
+            <Split Color1 = "Color" Color2 = "Color"><Plane NormVector = "0; 0; 1" NormDistance = " D" /></Split>
+            <Split Color1 = "Color" Color2 = "Color"><Plane NormVector = "0; 0; 1" NormDistance = "-D" /></Split>
+        </Macro>
+        <ExecMacro MacroName = "AddColor" Color = "clRed" />
+        <ExecMacro MacroName = "AddColor" Color = "clOrange" />
+        <Turn NormVector = "1;1;1" Angle = "-2*Pi/3"/>
+        <ExecMacro MacroName = "AddColor" Color = "clBlue" />
+        <ExecMacro MacroName = "AddColor" Color = "clGreen" />
+        <Turn NormVector = "1;1;1" Angle = "-2*Pi/3"/>
+        <ExecMacro MacroName = "AddColor" Color = "clYellow" />
+        <ExecMacro MacroName = "AddColor" Color = "clWhite" />
+        <Turn NormVector = "1;1;1" Angle = "-2*Pi/3"/>
+
+        <SaveSolvedState/>
+        <Turn Axis = "2" Layers = "0-2" Angle = "Pi / 2" />
+        <SaveSolvedState/>
+        <Undo/>
+    </Figure>
+
+    <Procedures CheckSolved = "CheckSavedStates" />
+</xml>

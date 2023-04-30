@@ -1,0 +1,6 @@
+Changes log.
+
+2023-03-23
+  New version 0.4 build 4:
+  * All xml-files moved to a single file library.zip.
+

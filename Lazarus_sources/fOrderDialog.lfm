@@ -1,0 +1,120 @@
+object OrderDialog: TOrderDialog
+  Left = 686
+  Height = 147
+  Top = 222
+  Width = 169
+  BorderStyle = bsDialog
+  Caption = 'Input cuboid orders'
+  ClientHeight = 147
+  ClientWidth = 169
+  Color = clBtnFace
+  ParentFont = True
+  Position = poScreenCenter
+  LCLVersion = '2.2.2.0'
+  object Bevel1: TBevel
+    Left = 8
+    Height = 97
+    Top = 8
+    Width = 153
+    Shape = bsFrame
+  end
+  object Label3: TLabel
+    Left = 16
+    Height = 15
+    Top = 72
+    Width = 36
+    Caption = 'Height'
+    ParentColor = False
+  end
+  object Label2: TLabel
+    Left = 16
+    Height = 15
+    Top = 48
+    Width = 32
+    Caption = 'Depth'
+    ParentColor = False
+  end
+  object Label1: TLabel
+    Left = 16
+    Height = 15
+    Top = 24
+    Width = 32
+    Caption = 'Width'
+    ParentColor = False
+  end
+  object OKBtn: TButton
+    Left = 7
+    Height = 25
+    Top = 116
+    Width = 75
+    Caption = 'OK'
+    Default = True
+    ModalResult = 1
+    TabOrder = 6
+  end
+  object CancelBtn: TButton
+    Left = 87
+    Height = 25
+    Top = 116
+    Width = 75
+    Cancel = True
+    Caption = 'Cancel'
+    ModalResult = 2
+    TabOrder = 7
+    Visible = False
+  end
+  object UpDown1: TUpDown
+    Left = 137
+    Height = 23
+    Top = 22
+    Width = 16
+    Associate = Edit1
+    Min = 0
+    Position = 1
+    TabOrder = 1
+  end
+  object UpDown2: TUpDown
+    Left = 137
+    Height = 23
+    Top = 46
+    Width = 16
+    Associate = Edit2
+    Min = 0
+    Position = 1
+    TabOrder = 3
+  end
+  object UpDown3: TUpDown
+    Left = 137
+    Height = 23
+    Top = 70
+    Width = 16
+    Associate = Edit3
+    Min = 0
+    Position = 1
+    TabOrder = 5
+  end
+  object Edit1: TEdit
+    Left = 56
+    Height = 23
+    Top = 22
+    Width = 81
+    TabOrder = 0
+    Text = '1'
+  end
+  object Edit2: TEdit
+    Left = 56
+    Height = 23
+    Top = 46
+    Width = 81
+    TabOrder = 2
+    Text = '1'
+  end
+  object Edit3: TEdit
+    Left = 56
+    Height = 23
+    Top = 70
+    Width = 81
+    TabOrder = 4
+    Text = '1'
+  end
+end

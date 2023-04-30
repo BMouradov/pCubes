@@ -1,0 +1,326 @@
+object Puzzle3dFrame: TPuzzle3dFrame
+  Left = 0
+  Height = 563
+  Top = 0
+  Width = 644
+  Align = alClient
+  AutoSize = True
+  ClientHeight = 563
+  ClientWidth = 644
+  TabOrder = 0
+  DesignLeft = 798
+  DesignTop = 164
+  object pb3d: TPaintBox
+    Left = 0
+    Height = 563
+    Top = 0
+    Width = 544
+    Align = alClient
+    PopupMenu = pm3d
+    OnMouseDown = pb3dMouseDown
+    OnMouseMove = pb3dMouseMove
+    OnMouseUp = pb3dMouseUp
+    OnPaint = pb3dPaint
+    OnResize = pb3dResize
+  end
+  object p3dRightPanel: TPanel
+    Left = 544
+    Height = 563
+    Top = 0
+    Width = 100
+    Align = alRight
+    ClientHeight = 563
+    ClientWidth = 100
+    TabOrder = 0
+    object bReset: TButton
+      Left = 8
+      Height = 25
+      Top = 8
+      Width = 80
+      Action = aReset
+      TabOrder = 0
+    end
+    object bScramble: TButton
+      Left = 8
+      Height = 25
+      Top = 40
+      Width = 80
+      Action = aScramble
+      TabOrder = 1
+    end
+    object bScrambleInf: TButton
+      Left = 8
+      Height = 25
+      Top = 72
+      Width = 80
+      Action = aScrambleInf
+      TabOrder = 2
+    end
+    object bUndo: TButton
+      Left = 8
+      Height = 25
+      Top = 104
+      Width = 80
+      Action = aUndo
+      Caption = 'Undo (Ctrl-Z)'
+      TabOrder = 3
+    end
+    object bRedo: TButton
+      Left = 8
+      Height = 25
+      Top = 136
+      Width = 80
+      Action = aRedo
+      Caption = 'Redo (Ctrl-Y)'
+      TabOrder = 4
+    end
+    object bMark: TButton
+      Left = 8
+      Height = 25
+      Top = 168
+      Width = 80
+      Action = aAddMark
+      TabOrder = 5
+    end
+    object bUndoToMark: TButton
+      Left = 8
+      Height = 25
+      Top = 200
+      Width = 80
+      Action = aUndoToMark
+      TabOrder = 6
+    end
+    object bZoomIn: TButton
+      Left = 8
+      Height = 25
+      Top = 232
+      Width = 80
+      Action = aZoomIn
+      TabOrder = 7
+    end
+    object bZoomOut: TButton
+      Left = 8
+      Height = 25
+      Top = 264
+      Width = 80
+      Action = aZoomOut
+      TabOrder = 8
+    end
+    object StaticText2: TStaticText
+      Left = 8
+      Height = 17
+      Top = 296
+      Width = 42
+      Caption = 'Explode'
+      TabOrder = 9
+    end
+    object tbExplode: TTrackBar
+      Left = 8
+      Height = 34
+      Top = 317
+      Width = 90
+      Max = 20
+      Min = 10
+      OnChange = tbExplodeChange
+      Position = 10
+      TabOrder = 10
+    end
+    object cbWired: TCheckBox
+      Left = 8
+      Height = 19
+      Top = 352
+      Width = 51
+      Caption = 'Wired'
+      OnClick = cbWiredClick
+      TabOrder = 11
+    end
+    object cbShowAxes: TCheckBox
+      Left = 8
+      Height = 19
+      Top = 368
+      Width = 45
+      Caption = 'Axes'
+      OnClick = cbShowAxesClick
+      TabOrder = 12
+    end
+    object lFromTo: TLabel
+      Left = 8
+      Height = 15
+      Top = 405
+      Width = 43
+      Caption = 'lFromTo'
+      ParentColor = False
+    end
+    object tbShowFrom: TTrackBar
+      Left = 8
+      Height = 33
+      Top = 424
+      Width = 90
+      OnChange = tbShowFromChange
+      PageSize = 1
+      Position = 0
+      TabOrder = 13
+    end
+    object tbShowTo: TTrackBar
+      Left = 7
+      Height = 33
+      Top = 454
+      Width = 90
+      OnChange = tbShowToChange
+      PageSize = 1
+      Position = 0
+      TabOrder = 14
+    end
+  end
+  object alPuzzle3d: TActionList
+    Left = 352
+    Top = 200
+    object aReset: TAction
+      Caption = 'Reset (F2)'
+      OnExecute = aResetExecute
+      ShortCut = 113
+    end
+    object aScramble: TAction
+      Caption = 'Scramble (F3)'
+      OnExecute = aScrambleExecute
+      ShortCut = 114
+    end
+    object aScrambleInf: TAction
+      Caption = 'Scrmb inf'
+      OnExecute = aScrambleInfExecute
+    end
+    object aUndo: TAction
+      Caption = 'Undo'
+      OnExecute = aUndoExecute
+      ShortCut = 16474
+    end
+    object aRedo: TAction
+      Caption = 'Redo'
+      OnExecute = aRedoExecute
+      ShortCut = 16473
+    end
+    object aAddMark: TAction
+      Caption = 'Mark'
+      OnExecute = aAddMarkExecute
+    end
+    object aUndoToMark: TAction
+      Caption = 'Undo to mark'
+      OnExecute = aUndoToMarkExecute
+    end
+    object aZoomIn: TAction
+      Caption = 'Zoom +'
+      OnExecute = aZoomInExecute
+    end
+    object aZoomOut: TAction
+      Caption = 'Zoom -'
+      OnExecute = aZoomOutExecute
+    end
+    object aOpenLibraryPage: TAction
+      Caption = 'Library'
+      OnExecute = aOpenLibraryPageExecute
+      ShortCut = 115
+    end
+  end
+  object dBkColor: TColorDialog
+    Color = clBlack
+    CustomColors.Strings = (
+      'ColorA=000000'
+      'ColorB=000080'
+      'ColorC=008000'
+      'ColorD=008080'
+      'ColorE=800000'
+      'ColorF=800080'
+      'ColorG=808000'
+      'ColorH=808080'
+      'ColorI=C0C0C0'
+      'ColorJ=0000FF'
+      'ColorK=00FF00'
+      'ColorL=00FFFF'
+      'ColorM=FF0000'
+      'ColorN=FF00FF'
+      'ColorO=FFFF00'
+      'ColorP=FFFFFF'
+      'ColorQ=C0DCC0'
+      'ColorR=F0CAA6'
+      'ColorS=F0FBFF'
+      'ColorT=A4A0A0'
+    )
+    Left = 384
+    Top = 200
+  end
+  object pm3d: TPopupMenu
+    AutoPopup = False
+    Left = 320
+    Top = 200
+    object miVisualization: TMenuItem
+      Caption = 'Visualization'
+      object miAntiAlias: TMenuItem
+        Caption = 'AntiAlias'
+        OnClick = miAntiAliasClick
+      end
+      object miShowAxes: TMenuItem
+        Caption = 'Show axes'
+        OnClick = miShowAxesClick
+      end
+      object miWired: TMenuItem
+        Caption = 'Wired'
+        OnClick = miWiredClick
+      end
+      object miShowNormals: TMenuItem
+        Caption = 'Show normals'
+        OnClick = miShowNormalsClick
+      end
+      object miContourMode: TMenuItem
+        Caption = 'Contours'
+        OnClick = miContourModeClick
+      end
+    end
+    object miMouseClickMode: TMenuItem
+      Caption = 'Mouse click mode'
+      object miTurn: TMenuItem
+        Caption = 'Turn'
+        OnClick = miTurnClick
+      end
+      object miHidePart: TMenuItem
+        Tag = 1
+        Caption = 'Hide part'
+        OnClick = miTurnClick
+      end
+      object miRemovePart: TMenuItem
+        Caption = 'Remove part'
+        OnClick = miTurnClick
+      end
+      object miHideSticker: TMenuItem
+        Caption = 'Hide sticker'
+        OnClick = miTurnClick
+      end
+      object miStickerColor: TMenuItem
+        Caption = 'Sticker color'
+        OnClick = miTurnClick
+      end
+      object miChangeColor: TMenuItem
+        Tag = 5
+        Caption = 'Change color'
+        OnClick = miTurnClick
+      end
+    end
+    object miLibrary: TMenuItem
+      Caption = 'Library'
+      object miLibraryNext: TMenuItem
+        Caption = 'Next puzzle'
+        ShortCut = 117
+        OnClick = miLibraryNextClick
+      end
+      object miLibraryPrev: TMenuItem
+        Caption = 'Prev puzzle'
+        ShortCut = 116
+        OnClick = miLibraryPrevClick
+      end
+      object miLibraryRandom: TMenuItem
+        Caption = 'Random puzzle'
+        ShortCut = 118
+        OnClick = miLibraryRandomClick
+      end
+    end
+  end
+end

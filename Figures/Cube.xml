@@ -1,0 +1,35 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<xml>
+    <Script>
+        if not VarExists('Colors[0]') then begin
+            clRed    := 'C80000';
+            clOrange := 'FF800A';
+            clBlue   := '0000C8';
+            clGreen  := '009600';
+            clYellow := 'FFFF00';
+            clWhite  := 'FFFFFF';
+
+            Colors[0] := clRed;
+            Colors[1] := clOrange;
+            Colors[2] := clBlue;
+            Colors[3] := clGreen;
+            Colors[4] := clYellow;
+            Colors[5] := clWhite;
+        end;
+
+        include 'Figures\Scripts\Cube_Coordinates.inc';
+    </Script>
+
+    <Part>
+        <Vertices Vectors = "Vx; Vy; Vz" />
+
+        <Faces>
+            <Face Color = "Colors[0]" VertexIndexes = "0;1;3;2" />
+            <Face Color = "Colors[1]" VertexIndexes = "5;4;6;7" />
+            <Face Color = "Colors[2]" VertexIndexes = "1;0;4;5" />
+            <Face Color = "Colors[3]" VertexIndexes = "2;3;7;6" />
+            <Face Color = "Colors[4]" VertexIndexes = "0;2;6;4" />
+            <Face Color = "Colors[5]" VertexIndexes = "3;1;5;7" />
+        </Faces>
+    </Part>
+</xml>

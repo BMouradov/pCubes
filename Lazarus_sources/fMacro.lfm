@@ -1,0 +1,70 @@
+object MacroForm: TMacroForm
+  Left = 0
+  Height = 240
+  Top = 0
+  Width = 320
+  ClientHeight = 240
+  ClientWidth = 320
+  LCLVersion = '2.2.2.0'
+  object sgMacros: TStringGrid
+    Left = 0
+    Height = 203
+    Top = 0
+    Width = 320
+    Align = alClient
+    ColCount = 9
+    Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goColSizing, goRowSelect]
+    PopupMenu = pmMacro
+    TabOrder = 0
+    OnDblClick = sgMacrosDblClick
+    OnDrawCell = sgMacrosDrawCell
+    OnKeyDown = FormKeyDown
+    OnKeyPress = sgMacrosKeyPress
+    OnMouseDown = sgMacrosMouseDown
+  end
+  object Panel1: TPanel
+    Left = 0
+    Height = 37
+    Top = 203
+    Width = 320
+    Align = alBottom
+    Caption = ' '
+    ClientHeight = 37
+    ClientWidth = 320
+    TabOrder = 1
+    object bExecuteMacro: TSpeedButton
+      Left = 459
+      Height = 22
+      Top = 5
+      Width = 38
+      Caption = 'Exec'
+      OnClick = bExecuteMacroClick
+    end
+    object Label1: TLabel
+      Left = 11
+      Height = 15
+      Top = 10
+      Width = 67
+      Caption = 'Macro string'
+      ParentColor = False
+    end
+    object eMacro: TEdit
+      Left = 84
+      Height = 23
+      Top = 6
+      Width = 369
+      OnChange = eMacroChange
+      OnKeyDown = FormKeyDown
+      TabOrder = 0
+    end
+  end
+  object pmMacro: TPopupMenu
+    OnPopup = pmMacroPopup
+    Left = 240
+    Top = 8
+    object miExecute: TMenuItem
+      Caption = 'Execute'
+      OnClick = miExecuteClick
+    end
+  end
+end

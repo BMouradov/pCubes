@@ -1,0 +1,100 @@
+object LogFrame: TLogFrame
+  Left = 0
+  Height = 632
+  Top = 0
+  Width = 1270
+  Align = alClient
+  ClientHeight = 632
+  ClientWidth = 1270
+  TabOrder = 0
+  DesignLeft = 350
+  DesignTop = 145
+  object pBottom: TPanel
+    Left = 0
+    Height = 200
+    Top = 432
+    Width = 1270
+    Align = alBottom
+    BevelOuter = bvNone
+    ClientHeight = 200
+    ClientWidth = 1270
+    TabOrder = 0
+    object pBottomCaption: TPanel
+      Left = 0
+      Height = 18
+      Top = 0
+      Width = 1270
+      Align = alTop
+      BevelOuter = bvNone
+      ClientHeight = 18
+      ClientWidth = 1270
+      TabOrder = 0
+      object lScript: TLabel
+        Left = 8
+        Height = 15
+        Top = 0
+        Width = 47
+        Caption = 'PreScript'
+        ParentColor = False
+      end
+    end
+    object mPreScript: TMemo
+      Left = 0
+      Height = 182
+      Top = 18
+      Width = 1270
+      Align = alClient
+      Anchors = [akLeft, akRight, akBottom]
+      OnChange = mPreScriptChange
+      ScrollBars = ssVertical
+      TabOrder = 1
+    end
+  end
+  object pTop: TPanel
+    Left = 0
+    Height = 432
+    Top = 0
+    Width = 1270
+    Align = alClient
+    BevelOuter = bvNone
+    ClientHeight = 432
+    ClientWidth = 1270
+    TabOrder = 1
+    object mLog: TMemo
+      Left = 0
+      Height = 382
+      Top = 0
+      Width = 1270
+      Align = alClient
+      ScrollBars = ssVertical
+      TabOrder = 0
+    end
+    object pTopButtons: TPanel
+      Left = 0
+      Height = 50
+      Top = 382
+      Width = 1270
+      Align = alBottom
+      ClientHeight = 50
+      ClientWidth = 1270
+      TabOrder = 1
+      object sbLogClear: TSpeedButton
+        Left = 16
+        Height = 30
+        Top = 8
+        Width = 56
+        Caption = 'Clear'
+        OnClick = sbLogClearClick
+      end
+      object bSplitOrder: TButton
+        Left = 80
+        Height = 30
+        Top = 8
+        Width = 72
+        Caption = 'Split Order'
+        OnClick = bSplitOrderClick
+        TabOrder = 0
+      end
+    end
+  end
+end

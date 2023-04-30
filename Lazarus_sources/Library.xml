@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<xml Data_Version="2">
+	<Puzzle>
+		<Name>Rubik's cube 2x2x2</Name>
+		<Aliases/>
+		<Class>TPuzzle</Class>
+		<Menu>Cubic\Classic Rubiks\2x2x2</Menu>
+		<Inventor>Ernő Rubik</Inventor>
+		<Programmer>Boris</Programmer>
+		<Added>2014-03-21</Added>
+		<Link>http://twistypuzzles.com/cgi-bin/puzzle.cgi?pkey=1</Link>
+		<File>Puzzles\2x2x2.xml</File>
+	</Puzzle>
+	<Puzzle>
+		<Name>Rubik's cube 3x3x3</Name>
+		<Aliases/>
+		<Class>TPuzzle</Class>
+		<Menu>Cubic\Classic Rubiks\3x3x3;Cubic\Classic Rubiks\3x3x31</Menu>
+		<Inventor>Ernő Rubik</Inventor>
+		<Programmer>Boris</Programmer>
+		<Added>2014-03-21</Added>
+		<Link>http://twistypuzzles.com/cgi-bin/puzzle.cgi?pkey=906</Link>
+		<File>Puzzles\3x3x3.xml</File>
+	</Puzzle>
+	<Puzzle>
+		<Name>Columns</Name>
+		<Aliases/>
+		<Class>TPuzzle</Class>
+		<Menu>Cubic\3x3x3 variants\Columns</Menu>
+		<Inventor>Adam Zamora</Inventor>
+		<Programmer>Boris</Programmer>
+		<Added>2014-05-10</Added>
+		<Link>http://twistypuzzles.com/cgi-bin/puzzle.cgi?pkey=3025</Link>
+		<File>Puzzles\Cubic\3x3x3 variants\Columns.xml</File>
+	</Puzzle>
+	<Puzzle>
+		<Name>Tartan Cube 5x5x5</Name>
+		<Aliases/>
+		<Class>TPuzzle</Class>
+		<Menu>Cubic\Rubiks Recolored\Tartan Cube 5x5x5</Menu>
+		<Inventor>Brian Deplae</Inventor>
+		<Programmer>Boris</Programmer>
+		<Added>2023-01-05</Added>
+		<Link>http://twistypuzzles.com/cgi-bin/puzzle.cgi?pkey=1241</Link>
+		<File>Puzzles\Cubic\Rubiks Recolored\Tartan Cube 5x5x5.xml</File>
+	</Puzzle>
+</xml>

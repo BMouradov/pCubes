@@ -1,0 +1,10 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<xml Data_Version = "1" >
+    <Menu>Cubic
+        <Menu>Classic Rubiks
+            <Menu>2x2x2</Menu>
+            <Menu>3x3x3</Menu>
+            <Menu>Haché</Menu>
+        </Menu>
+    </Menu>
+</xml>
