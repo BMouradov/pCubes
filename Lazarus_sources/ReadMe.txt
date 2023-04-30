@@ -1,3 +1,7 @@
+pCubes - is a twisty-puzzles simulator.
+It is open-source since 0.4 beta version.
+
+I used Lazarus v2.2.2.
 To use sources you must install BGRABitmap package:
 Package\Online package manager\BGRABitmap\Install
 
